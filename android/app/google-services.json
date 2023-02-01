@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "510330338102",
+    "project_id": "fir-demo-d5643",
+    "storage_bucket": "fir-demo-d5643.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510330338102:android:fdbea9ece232ba53801197",
+        "android_client_info": {
+          "package_name": "com.umairproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510330338102-g4fbe0ubn1m7ues0h1c360hkn22la06v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_5qUJ5nj8VArl1RSPkaFMYsh3q5yHfu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510330338102-g4fbe0ubn1m7ues0h1c360hkn22la06v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

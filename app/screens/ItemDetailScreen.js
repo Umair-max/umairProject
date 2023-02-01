@@ -8,7 +8,7 @@ import SimpleListItem from '../components/lists/SimpleListItem';
 import AppFormField from '../components/forms/AppFormField';
 import SubmitButton from '../components/forms/SubmitButton';
 import AppForm from '../components/forms/AppForm';
-import {showNotification, handleSheduleNotification, showLocalNotification} from '../src/notification.ios'
+// import {showNotification, handleSheduleNotification, showLocalNotification} from '../src/notification.ios'
 
 const validationSchema = Yup.object().shape({
     message: Yup.string().optional().label('message'),
@@ -36,7 +36,7 @@ function ItemDetailScreen({route}) {
                 initialValues={{
                     message: ''
                 }}               
-                onSubmit={() => showLocalNotification('React Native', 'Your message sent to the seller')}
+                // onSubmit={() => showLocalNotification('React Native', 'Your message sent to the seller')}
                 validationSchema={validationSchema}
             >
             <View style={styles.contact}>

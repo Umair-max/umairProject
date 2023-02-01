@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 import navigationTheme from './app/navigation/navigationTheme';
 import AppNavigator from './app/navigation/AppNavigator';
 import OfflineNotice from './app/components/OfflineNotice';
@@ -14,45 +14,32 @@ export default function App(props) {
 
   const restoreUser = async () => {
     const user = await authStorage.getUser();
-    if (user) setUser(user)
-  }
+    if (user) setUser(user);
+  };
 
   useEffect(() => {
-    restoreUser()
+    // restoreUser()
 
     setTimeout(() => {
-      setIsDone(true)
-      }, 1000)
-
-  }, [])
+      setIsDone(true);
+    }, 1000);
+  }, []);
 
   return (
     <>
-    {isDone === true ? (
-      <AuthContaxt.Provider value={{user, setUser}}>
-      <OfflineNotice />
-      <NavigationContainer theme={navigationTheme}>
-        {user? <AppNavigator/> : <AuthNavigator/>}  
-      </NavigationContainer>
-    </AuthContaxt.Provider>
-        ) : <SplashScreen/>}
+      {isDone === true ? (
+        <AuthContaxt.Provider value={{user, setUser}}>
+          <OfflineNotice />
+          <NavigationContainer theme={navigationTheme}>
+            {user ? <AppNavigator /> : <AuthNavigator />}
+          </NavigationContainer>
+        </AuthContaxt.Provider>
+      ) : (
+        <SplashScreen />
+      )}
     </>
-
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from 'react';
 // import { Button, Text } from 'react-native';
@@ -65,7 +52,7 @@ export default function App(props) {
 // const Link = () => {
 //   const navigation = useNavigation();
 //   return (
-//     <Button 
+//     <Button
 //       title='Click'
 //       onPress={() => navigation.navigate('TweetDetails')}
 //     />
@@ -75,7 +62,7 @@ export default function App(props) {
 // const Tweets = ({navigation}) => (
 //   <Screen>
 //     <Text>Tweet</Text>
-//     <Button 
+//     <Button
 //       title='View Tweets'
 //       onPress={() => navigation.navigate('TweetDetails', {id: 1})}
 //     />
@@ -104,6 +91,5 @@ export default function App(props) {
 //     </NavigationContainer>
 //   )
 // }
-
 
 // react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
