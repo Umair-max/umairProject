@@ -1,8 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 function FirebaseStartingScreen(props) {
-  return <View></View>;
+  return (
+    <View>
+      <Text>asdasd</Text>
+    </View>
+  );
 }
 const styles = StyleSheet.create({});
 
