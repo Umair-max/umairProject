@@ -22,7 +22,7 @@ export default function App(props) {
 
     setTimeout(() => {
       setIsDone(true);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
