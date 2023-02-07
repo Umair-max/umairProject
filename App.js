@@ -7,6 +7,9 @@ import AuthNavigator from './app/navigation/AuthNavigator';
 import AuthContaxt from './app/auth/context';
 import authStorage from './app/auth/storage';
 import SplashScreen from './app/screens/SplashScreen';
+import MainNavigator from './app/firebase navigtion/MainNavigator';
+import auth from '@react-native-firebase/auth';
+// import auth from './app/api/auth';
 
 export default function App(props) {
   const [user, setUser] = useState();
@@ -19,25 +22,29 @@ export default function App(props) {
 
   useEffect(() => {
     // restoreUser()
-
+    console.log('currentUser', auth().currentUser);
+    if (auth().currentUser != null) {
+      auth().signOut();
+    }
     setTimeout(() => {
       setIsDone(true);
     }, 500);
   }, []);
 
   return (
-    <>
-      {isDone === true ? (
-        <AuthContaxt.Provider value={{user, setUser}}>
-          <OfflineNotice />
-          <NavigationContainer theme={navigationTheme}>
-            {user ? <AppNavigator /> : <AuthNavigator />}
-          </NavigationContainer>
-        </AuthContaxt.Provider>
-      ) : (
-        <SplashScreen />
-      )}
-    </>
+    <MainNavigator /> // this is main navigator of firebase practicing screens
+    // <>
+    //   {isDone === true ? (
+    //     <AuthContaxt.Provider value={{user, setUser}}>
+    //       <OfflineNotice />
+    //       <NavigationContainer theme={navigationTheme}>
+    //         {user ? <AppNavigator /> : <AuthNavigator />}
+    //       </NavigationContainer>
+    //     </AuthContaxt.Provider>
+    //   ) : (
+    //     <SplashScreen />
+    //   )}
+    // </>
   );
 }
 
@@ -91,5 +98,3 @@ export default function App(props) {
 //     </NavigationContainer>
 //   )
 // }
-
-// react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios

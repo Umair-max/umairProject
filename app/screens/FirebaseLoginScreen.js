@@ -5,20 +5,23 @@ import auth from '@react-native-firebase/auth';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
 
-function FirebaseAuthenticationScreen(props) {
+function FirebaseLoginScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   // *************************************** store email and password in firebase authentication ************************
-  const handleSignup = () => {
+  const handleLogin = () => {
     try {
       auth()
-        .createUserWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(email, password)
         .then(() => {
-          Alert.alert('Done', 'User Acoount created');
+          console.log('User account created & signed in!');
+        })
+        .catch(error => {
+          alert(error);
         });
     } catch (error) {
-      console.log('signup giving an error', error);
+      console.log('handle login givng an error', error);
     }
   };
 
@@ -34,7 +37,7 @@ function FirebaseAuthenticationScreen(props) {
         value={password}
         onChangeText={text => setPassword(text)}
       />
-      <AppButton title={'signup'} onPress={() => handleSignup()} />
+      <AppButton title={'login'} onPress={() => handleLogin()} />
     </View>
   );
 }
@@ -44,4 +47,4 @@ const styles = StyleSheet.create({
     top: 100,
   },
 });
-export default FirebaseAuthenticationScreen;
+export default FirebaseLoginScreen;

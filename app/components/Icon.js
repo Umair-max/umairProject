@@ -1,33 +1,34 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 import colors from '../config/colors';
 import Screen from './Screen';
 
 function Icon({
-    style,
-    iconSize=50,
-    iconSource,
-    backgroundColor=colors.black,
-    iconColor=colors.white,
+  iconSize = 50,
+  iconSource,
+  backgroundColor = colors.black,
+  iconColor = colors.white,
 }) {
-    return (
-        <Screen style={{
-            width: iconSize,
-            height: iconSize,
-            backgroundColor,
-            borderRadius: iconSize/2,
-            justifyContent: 'center',
-            alignItems:'center'
-        }}>
-            <Image style={{
-                height: iconSize/2,
-                width: iconSize/2,
-                tintColor:iconColor
-             }} 
-                source={iconSource}/>
-                                
-        </Screen>
-    );
+  return (
+    <Screen
+      style={{
+        width: iconSize,
+        height: iconSize,
+        backgroundColor,
+        borderRadius: iconSize / 2,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Image
+        style={{
+          height: iconSize / 2,
+          width: iconSize / 2,
+          tintColor: iconColor,
+        }}
+        source={iconSource}
+      />
+    </Screen>
+  );
 }
 
 export default Icon;
